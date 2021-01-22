@@ -1,0 +1,17 @@
+{
+  "name": "admintest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build":"browserify main.js -o bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^9.4.2"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0"
+  }
+}
