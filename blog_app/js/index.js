@@ -105,4 +105,48 @@ var firebaseConfig = {
       window.alert("Please write your e-mail firstly.");
     }
   });
-  
+
+  $("#btn-update").click(function()
+  {
+    var name = $("#name").val();
+    var email = "deneme12345@hotmail.com";
+    var image = "default";
+    var uid = "1234567";
+
+    var rootRef= firebase.database().ref().child("Users");
+    var userID = firebase.auth().currentUser.uid //
+    var userRef = rootRef.child(userID);
+
+    if(name !="")
+    {
+      var useData= 
+      {
+        "email": email,
+        "image": image,
+        "name": name,
+        "uid": uid,
+        
+      };
+      userRef.set(useData, function(error)
+      {
+        if(error)
+        {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+
+          console.log(errorCode);
+          console.log(errorMessage);
+
+          window.alert("Message : "+ errorMessage);
+        }
+        else
+        {
+          window.location.href="MainPage.html";
+        }
+      });
+    }
+    else
+    {
+      window.alert("Please write your e-mail firstly.");
+    }
+  });
